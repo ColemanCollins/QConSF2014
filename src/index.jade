@@ -1,0 +1,395 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+    title QCon
+
+    link(rel='stylesheet', type='text/css', href='build/build.css')
+
+  body
+
+    article
+
+      section
+        h1 Designing The Second Interface
+        h3 Coleman Collins
+        hr
+        h4 <b>ThoughtWorks</b> Experience Design 
+        h4.secondary @COLEMANICEWATER&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#qconsf
+
+      section.
+        <blockquote data-width="550" class="twitter-tweet" lang="en"><p>OH: “Do programmers have any specific superstitions?”&#10;&#10;“Yeah, but we call them best practices.”</p>&mdash; David Grandinetti (@dbgrandi) <a href="https://twitter.com/dbgrandi/status/508329463990734848">September 6, 2014</a></blockquote>
+        <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+      section
+        h2.bullet I'm a designer
+        h2.bullet who looks at code a lot.
+        hr
+        h2.bullet i'm also impatient.
+
+      section
+        h2.bullet Two Big Things I Learned <br/> When Learning To Code:
+        hr
+        h4.bullet 1) It's Difficult!
+        h4.bullet 2) There Are Humans On Both Ends Of This Thing.
+
+      section
+        h2 Users are anyone who <br/>uses a system.
+
+      section
+        h2 This is an interface
+        img(src='images/Netflix_UI.png').netflix-image
+
+      section
+        h2 this is also an interface
+        pre
+          code.language-javascript.
+            var uploadToImgur = function() {
+              var imgDataURL = DOM.$saveImg.attr('src').replace(/^data:image\/(png|jpg);base64,/, '');
+              $.ajax({
+                method: 'POST',
+                url: 'https://api.imgur.com/3/image',
+                headers: {
+                  Authorization: 'Client-ID ' + imgur.clientId,
+                },
+                dataType: 'json',
+                data: {
+                  image: imgDataURL,
+                  type: 'base64',
+                  title: 'made on make8bitart.com',
+                  description: 'made on make8bitart.com'
+                },
+                success: function(result) {
+
+      section
+        h2 this is a talk about 
+        h3 interface design
+
+      section
+        h2 this is a talk about 
+        h3 usability & UX
+  
+      section
+        h2 this is a talk about 
+        h3 clean code
+
+      section
+        img(src='images/RichHickey.png').medium-image.bullet
+        hr
+        h2.bullet Form Follows Function
+
+      section
+        img(src='images/uniform_form.jpg').medium-image.bullet
+        hr
+        h2.bullet Form <i>Informs</i> Function
+
+      section
+        img(src='images/midvale.png').medium-image
+
+      section
+        img(src='images/PushPullDoors2.jpg').medium-image
+
+      section
+        img(src='images/solar.jpg').medium-image
+
+      section
+        h2 An Interface is <br/>like a joke
+        
+      section
+        h2 This is a function
+        hr
+        pre
+          code.
+            parseHash = function() {
+            var hash = window.location.hash.slice(1),
+            slideNumberOrName = parseInt(hash, 10);
+            if (hash) {
+            if (slideNumberOrName) {
+            activateSlide(slideNumberOrName - 1);
+            } else {
+            deck.slides.forEach(function(slide, i) {
+            if (slide.getAttribute('data-bespoke-hash')) {
+            activateSlide(i);
+            }
+            });
+            }
+            }
+            },
+
+      section
+        h2 form informs function
+        hr
+        pre
+          code.language-javascript.
+            parseHash = function() {
+              var hash = window.location.hash.slice(1),
+                slideNumberOrName = parseInt(hash, 10);
+
+              if (hash) {
+                if (slideNumberOrName) {
+                  activateSlide(slideNumberOrName - 1);
+                } else {
+                  deck.slides.forEach(function(slide, i) {
+                    if (slide.getAttribute('data-bespoke-hash')) {
+                      activateSlide(i);
+                    }
+                  });
+                }
+              }
+            },
+
+      section
+        h2 Secondary Notation
+        hr
+        pre
+          code.language-javascript.
+            parseHash = function() {
+              var hash = window.location.hash.slice(1),
+                slideNumberOrName = parseInt(hash, 10);
+
+              if (hash) {
+                if (slideNumberOrName) {
+                  activateSlide(slideNumberOrName - 1);
+                } else {
+                  deck.slides.forEach(function(slide, i) {
+                    if (slide.getAttribute('data-bespoke-hash')) {
+                      activateSlide(i);
+                    }
+                  });
+                }
+              }
+            },
+
+      section
+        h2 but Coleman, I don't <br/>have an eye for this <br/> kind of stuff
+
+      section
+        pre
+          code.language-javascript.
+            wHaTifYOUSAwafUnctIONNamedLiketHis = function() {
+              // you would probably be furious
+            };
+
+      section
+        pre
+          code.language-markup.
+            &lt;div class="whatIfThisClassName"&gt;&lt;div&gt;
+            &lt;div class="and_this_class_name"&gt;&lt;div&gt;
+            &lt;div class="and-this-className"&gt;&lt;div&gt;
+            all appeared in the same template?
+
+      section
+        pre
+          code.language-javascript.
+            tabs
+              versus
+            &nbsp;spaces?
+
+            inconsistent indentation?
+            &nbsp;&nbsp;&nbsp;seriously, how hard
+            &nbsp;&nbsp;&nbsp;can horizontal 
+            &nbsp;&nbsp;&nbsp;alignment be?
+      
+      section
+        h2.bullet Typography
+        hr
+        h4.bullet The selection and arrangement of type, with the <br/>goal of enhancing readability, understandability, <br/>and aesthetic appeal. 
+
+      section.heuristic-slide
+        h2 Interfaces Should <br/>Be Consistent
+        hr
+        h4 Users should not have to wonder whether <br/> different words, situations, or actions mean <br/>the same thing. Follow platform conventions.
+        hr
+        h5 Heuristic 4, Nielsen's 10 Usability Heuristics for User Interface Design
+
+      section
+        h2.bullet What's the value <br/>of consistency?
+        hr
+        h4.bullet 1) The Human Brain Is A Pattern Recognition Machine
+        h4.bullet 2) The Human Brain Is A Pattern Recognition Machine
+        h4.bullet 3) The Human Brain Is A Pattern Recognition Machine
+        h4.bullet 4) And It Relies On Patterns To Reduce Cognitive Load
+
+      section
+        pre
+          code.
+            <span class="odd">1</span> <span class="odd">9</span> <span class="odd">3</span> 4 0 <span class="odd">3</span> 0 8 8 0 2 0 4 <span class="odd">5</span> <span class="odd">1</span> <span class="odd">7</span> 2 8 8 6
+            0 8 6 <span class="odd">3</span> <span class="odd">1</span> 4 4 0 <span class="odd">7</span> <span class="odd">3</span> 4 <span class="odd">1</span> 0 <span class="odd">3</span> 8 0 <span class="odd">7</span> 2 <span class="odd">3</span> 2
+            <span class="odd">3</span> 6 <span class="odd">9</span> 4 <span class="odd">7</span> 8 6 <span class="odd">1</span> 0 <span class="odd">3</span> <span class="odd">5</span> 8 0 4 0 8 0 <span class="odd">3</span> 6 8
+            4 <span class="odd">7</span> <span class="odd">1</span> 4 <span class="odd">7</span> 8 <span class="odd">1</span> 6 <span class="odd">3</span> 8 2 6 <span class="odd">1</span> <span class="odd">9</span> 6 <span class="odd">1</span> 0 0 6 6
+            <span class="odd">9</span> 4 4 <span class="odd">5</span> <span class="odd">1</span> 0 <span class="odd">9</span> <span class="odd">5</span> <span class="odd">5</span> 4 <span class="odd">9</span> <span class="odd">1</span> 0 6 4 8 8 <span class="odd">9</span> <span class="odd">5</span> 0
+            0 2 8 6 <span class="odd">3</span> 0 <span class="odd">9</span> <span class="odd">7</span> 2 4 6 8 0 2 6 2 <span class="odd">3</span> 8 <span class="odd">5</span> <span class="odd">5</span>
+
+      section
+        pre
+          code.odd-numbers-blue.
+            <span class="odd">1</span> <span class="odd">9</span> <span class="odd">3</span> 4 0 <span class="odd">3</span> 0 8 8 0 2 0 4 <span class="odd">5</span> <span class="odd">1</span> <span class="odd">7</span> 2 8 8 6
+            0 8 6 <span class="odd">3</span> <span class="odd">1</span> 4 4 0 <span class="odd">7</span> <span class="odd">3</span> 4 <span class="odd">1</span> 0 <span class="odd">3</span> 8 0 <span class="odd">7</span> 2 <span class="odd">3</span> 2
+            <span class="odd">3</span> 6 <span class="odd">9</span> 4 <span class="odd">7</span> 8 6 <span class="odd">1</span> 0 <span class="odd">3</span> <span class="odd">5</span> 8 0 4 0 8 0 <span class="odd">3</span> 6 8
+            4 <span class="odd">7</span> <span class="odd">1</span> 4 <span class="odd">7</span> 8 <span class="odd">1</span> 6 <span class="odd">3</span> 8 2 6 <span class="odd">1</span> <span class="odd">9</span> 6 <span class="odd">1</span> 0 0 6 6
+            <span class="odd">9</span> 4 4 <span class="odd">5</span> <span class="odd">1</span> 0 <span class="odd">9</span> <span class="odd">5</span> <span class="odd">5</span> 4 <span class="odd">9</span> <span class="odd">1</span> 0 6 4 8 8 <span class="odd">9</span> <span class="odd">5</span> 0
+            0 2 8 6 <span class="odd">3</span> 0 <span class="odd">9</span> <span class="odd">7</span> 2 4 6 8 0 2 6 2 <span class="odd">3</span> 8 <span class="odd">5</span> <span class="odd">5</span>
+
+      section
+        h2 Visual Pattern <br/>Recognition
+        pre
+          code.language-javascript.
+            function shuffle(array) {
+              var currentIndex = array.length, temporaryValue, randomIndex;
+              // While there remain elements to shuffle
+              while (0 !== currentIndex) {
+                // Pick a remaining element
+                randomIndex = Math.floor(Math.random() * currentIndex);
+                currentIndex -= 1;
+                // And swap it with the current element
+                temporaryValue = array[currentIndex];
+                array[currentIndex] = array[randomIndex];
+                array[randomIndex] = temporaryValue;
+              }
+              return array;
+            }
+      section.heuristic-slide
+        h2 Interfaces Should <br/>Employ Recognition <br/>over Recall
+        hr
+        h4 Minimize the user's memory load by making objects, <br/> actions, and options visible. The user should not <br/>have to remember information from one part of <br/>the [system] to another. Instructions for use of the <br/>system should be visible or easily retrievable <br/>whenever appropriate.
+        hr
+        h5 Heuristic 6, Nielsen's 10 Usability Heuristics for User Interface Design 
+
+      section
+        h2 Visual Pattern <br/>Recognition
+        pre
+          code.
+            function recall() {
+              return 'when does this string end? what if there\'s a bunch of \'escap
+              ed\' single quotes in it? ' + 'I guess i'll have to pay attentio
+              n for clues.'
+            };
+          code.language-javascript.
+            function recognition() {
+              return 'this is a string because strings are green.' 
+            };
+      section.obnoxious-comment
+        h2 color can do more!
+        pre
+          code.language-javascript.
+            function example(varable) {
+              // if comments looked like this
+              // it would be harder to let them hang around
+              // they'd only be used when necessary
+            }
+          hr
+          code.
+            (With regards to James Fisher)
+            https://medium.com/@MrJamesFisher/your-syntax-highlighter-is-wrong-6f83add748c9
+
+      section.heuristic-slide
+        h2 Interfaces Should help<br/>prevent errors
+        hr
+        h4 Even better than good error messages is a <br/>careful design which prevents a problem <br/>from occurring in the first place [...].
+        hr
+        h5 Heuristic 5, Nielsen's 10 Usability Heuristics for User Interface Design
+
+      section
+        h2 Things That Look <br/> the same but aren't
+        pre
+          code.language-javascript.
+            assignment != equivalency != math operators
+            but = 
+            has the same color as ==, !=, =<
+            has the same color as < + -
+        pre
+          code.language-coffeescript.
+            in coffeescript
+            the fat arrow <span style="color:#67cdcc">=></span>
+            and the skinny arrow<span style="color:#67cdcc"> -></span>
+            share this color, too
+
+      section
+        h2 Highlight deeper <br/> code introspection
+        hr
+        img(src='images/unused-values.png')
+
+      section
+        h2 semantic <br/>highlighting
+        hr
+        img(src='images/unused-values.png')
+
+      section
+        h2 semantic <br/>highlighting
+        hr
+        img(src='images/semantic.png')
+
+      section
+        h2 semantic <br/>highlighting
+        hr
+        img(src='images/variable_scope.jpg')
+
+      section
+        h2.bullet But:
+        h2.bullet This is not <br/>the place for <br/>Fruit salad.
+
+      section.heuristic-slide
+        h2 Interfaces Should <br/>be Aesthetic <br/>and Minimalist
+        hr
+        h4 [Interfaces] should not contain information which <br/>is irrelevant or rarely needed. Every extra unit <br/>of information in [an interface] competes with the <br/>relevant units of information and diminishes their <br/>relative visibility.
+        hr
+        h5 Heuristic 7, Nielsen's 10 Usability Heuristics for User Interface Design
+
+      section
+        h2 Data-ink ratio
+        hr
+        img(src='images/tufte-book.jpg')
+
+      section
+        h2.bullet when everything <br/>is highlighted
+        hr
+        div.bullet
+          img(src='images/syndrome.jpg')
+          hr
+          h2 nothing is.
+
+      section
+        h2.bullet indentation
+        h2.bullet visually reflects <br/> code structure
+        pre.bullet
+          code.language-markup.
+            &lt;section class=”container”&gt;
+              &lt;h1&gt;&lt;%= post.title %&gt;&lt;/h1&gt;
+              &lt;h2&gt;&lt;%= post.subtitle %&gt;&lt;/h2&gt;
+              &lt;div class=”content”&gt;
+                &lt;%= post.content %&gt;
+              &lt;/div&gt;
+            &lt;/section&gt;
+
+       section
+        h2.bullet indentation <br/> becomes <br/> code structure
+        pre.bullet
+          code.
+            %<span style="color:#e2777a;">section<span style="color:#7ec699;">.container</span></span>
+              %<span style="color:#e2777a;">h1</span>= post.title
+              %<span style="color:#e2777a;">h2</span>= post.subtitle
+              <span style="color:#7ec699;">.content</span>
+                = post.content
+        
+      section
+        h2 these are all <br/>abstractions
+
+      section
+        h2 this is all an <br/>interface
+  
+      section
+        h2 and all Design <br/>is design
+
+      section
+        h2 the priniciples apply
+
+      section
+        h1 Thanks
+        h3 <span style="text-transform:none">ccollins@thoughtworks.com</span>  
+        h3 @colemanicewater
+        hr
+        h4 <span style="text-transform:none">(and right here for questions)</span>
+
+
+    script(src='build/build.js')
